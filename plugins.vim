@@ -1,5 +1,3 @@
-set runtimepath^=~/.local/share/dein/repos/github.com/Shougo/dein.vim
-
 call dein#begin('~/.config/nvim')
 let plugList = [
 \   'ctrlpvim/ctrlp.vim',
