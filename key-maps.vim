@@ -27,17 +27,26 @@ nnoremap g= YpVr=gqk
 
 noremap <leader>f za
 
-nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
-nnoremap <silent> <leader>; :call <SID>AddSemiColon()<CR>
-nnoremap <silent> <leader>, :call <SID>AddComma()<CR>
+" nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+" nnoremap <silent> <leader>; :call <SID>AddSemiColon()<CR>
+" nnoremap <silent> <leader>, :call <SID>AddComma()<CR>
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 map <C-g> :e %:h/<cfile><CR>
 map <C-*> :Ag <cword><CR>
-
-nmap <C-S-P> :call <SID>SynStack()<CR>
 
 cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 noremap <leader>g :Gstat<CR>
 
+noremap <leader>p :Denite file_rec<CR>
+noremap <leader>b :Denite buffer<CR>
+
+noremap <leader>t :TagbarOpen j<CR>
 " noremap <leader>e :Fixmyjs<CR>
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+

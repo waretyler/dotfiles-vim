@@ -11,7 +11,6 @@ let plugList = [
 \   'PeterRincker/vim-argumentative',
 \   'Raimondi/delimitMate',
 \   'rking/ag.vim', 
-\   'scrooloose/syntastic',
 \   'Shougo/dein.vim',
 \   'Shougo/deoplete.nvim',
 \   'Shougo/vimshell.vim',
@@ -24,9 +23,23 @@ let plugList = [
 \   'tpope/vim-repeat',
 \   'tpope/vim-surround',
 \   'tpope/vim-unimpaired',
-\   'vim-scripts/repmo.vim',
 \   'tkhren/vim-fake',
 \ ]
+
+if exists('g:tware_plugins')
+  call extend(plugList, [
+        \ 'majutsushi/tagbar',
+        \ 'scrooloose/nerdtree',
+        \ 'Shougo/denite.nvim',
+				\ 'Houl/vim-repmo',
+        \ 'c0r73x/neotags.nvim',
+        \ 'SirVer/ultisnips', 
+        \ 'Shougo/neoinclude.vim',
+        \ 'Shougo/neco-vim',
+        \ 'zchee/deoplete-zsh',
+        \ 'mhinz/vim-signify',
+        \ ]) 
+endif
 
 " Plugins once used, delete after review 
 " 'AndrewRadev/linediff.vim'
@@ -39,9 +52,6 @@ let plugList = [
 " 'kana/vim-textobj-user' 
 " 'marijnh/tern_for_vim'
 " 'mhinz/vim-startify'
-" 'scrooloose/nerdtree'
-" 'scrooloose/nerdtree'
-" 'scrooloose/syntastic'
 " 'Shougo/vimshell.vim'
 " 'SirVer/ultisnips' 
 " 'tmhedberg/matchit'
