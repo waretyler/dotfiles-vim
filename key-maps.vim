@@ -15,12 +15,12 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " H -> 0
 " L -> $
-nnoremap H 0
-nnoremap L $
-onoremap H 0
-onoremap L $
-vnoremap H 0
-vnoremap L $
+" nnoremap H 0
+" nnoremap L $
+" onoremap H 0
+" onoremap L $
+" vnoremap H 0
+" vnoremap L $
 
 nnoremap g- YpVr-gqk
 nnoremap g= YpVr=gqk
@@ -36,17 +36,18 @@ map <C-*> :Ag <cword><CR>
 
 cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-noremap <leader>g :Gstat<CR>
+if (g:plugins == 1)
+  noremap <leader>g :Gstat<CR>
 
-noremap <leader>p :Denite file_rec<CR>
-noremap <leader>b :Denite buffer<CR>
+  noremap <leader>p :Denite file_rec<CR>
+  noremap <leader>b :Denite buffer<CR>
 
-noremap <leader>t :TagbarOpen j<CR>
-" noremap <leader>e :Fixmyjs<CR>
+  noremap <leader>t :TagbarOpen j<CR>
+  " noremap <leader>e :Fixmyjs<CR>
 
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
+  let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
+  " JK motions: Line motions
+  map <Leader>j <Plug>(easymotion-j)
+  map <Leader>k <Plug>(easymotion-k)
+endif

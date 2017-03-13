@@ -1,4 +1,4 @@
-let g:tware_plugins = 1
+let g:plugins = 1
 
 let sourceFileList = [
 \   '$config/vim/local.vim',
@@ -15,3 +15,4 @@ for sourceFile in sourceFileList
   execute 'source '.sourceFile
 endfor
 
+highlight Comment cterm=italic

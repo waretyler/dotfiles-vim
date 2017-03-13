@@ -1,44 +1,53 @@
-call dein#begin('~/.config/nvim')
-let plugList = [
-\   'ctrlpvim/ctrlp.vim',
-\   'easymotion/vim-easymotion',
-\   'freeo/vim-kalisi',
-\   'itchyny/lightline.vim',
-\   'jez/vim-superman',
-\   'lervag/vimtex',
-\   'mxw/vim-jsx',
-\   'pangloss/vim-javascript',
-\   'PeterRincker/vim-argumentative',
-\   'Raimondi/delimitMate',
-\   'rking/ag.vim', 
-\   'Shougo/dein.vim',
-\   'Shougo/deoplete.nvim',
-\   'Shougo/vimshell.vim',
-\   'ruanyl/vim-fixmyjs',
-\   'sjl/vitality.vim',
-\   'tomtom/tcomment_vim',
-\   'tpope/vim-eunuch',
-\   'tpope/vim-fugitive',
-\   'tpope/vim-git',
-\   'tpope/vim-repeat',
-\   'tpope/vim-surround',
-\   'tpope/vim-unimpaired',
-\   'tkhren/vim-fake',
-\ ]
+if (g:plugins == 1) 
+  call dein#begin('~/.config/nvim')
+  let plugList = [
+        \   'c0r73x/neotags.nvim',
+        \   'critiqjo/lldb.nvim',
+        \   'easymotion/vim-easymotion',
+        \   'freeo/vim-kalisi',
+        \   'Houl/vim-repmo',
+        \   'itchyny/lightline.vim',
+        \   'jez/vim-superman',
+        \   'joonty/vdebug',
+        \   'juneedahamed/svnj.vim',
+        \   'lervag/vimtex',
+        \   'majutsushi/tagbar',
+        \   'mhinz/vim-signify',
+        \   'mxw/vim-jsx',
+        \   'pangloss/vim-javascript',
+        \   'PeterRincker/vim-argumentative',
+        \   'Raimondi/delimitMate',
+        \   'rking/ag.vim', 
+        \   'ruanyl/vim-fixmyjs',
+        \   'scrooloose/nerdtree',
+        \   'Shougo/dein.vim',
+        \   'Shougo/denite.nvim',
+        \   'Shougo/deoplete.nvim',
+        \   'Shougo/neco-vim',
+        \   'Shougo/neoinclude.vim',
+        \   'Shougo/vimshell.vim',
+        \   'sjl/vitality.vim',
+        \   'tkhren/vim-fake',
+        \   'tomtom/tcomment_vim',
+        \   'tpope/vim-eunuch',
+        \   'tpope/vim-fugitive',
+        \   'tpope/vim-git',
+        \   'tpope/vim-repeat',
+        \   'tpope/vim-speeddating',
+        \   'tpope/vim-surround',
+        \   'tpope/vim-unimpaired',
+        \   'whatot/gtags-cscope.vim',
+        \   'zchee/deoplete-zsh',
+        \ ]
+  for plugin in plugList
+    call dein#add(plugin)
+  endfor
 
-if exists('g:tware_plugins')
-  call extend(plugList, [
-        \ 'majutsushi/tagbar',
-        \ 'scrooloose/nerdtree',
-        \ 'Shougo/denite.nvim',
-				\ 'Houl/vim-repmo',
-        \ 'c0r73x/neotags.nvim',
-        \ 'SirVer/ultisnips', 
-        \ 'Shougo/neoinclude.vim',
-        \ 'Shougo/neco-vim',
-        \ 'zchee/deoplete-zsh',
-        \ 'mhinz/vim-signify',
-        \ ]) 
+  call dein#end()
+
+  if dein#check_install()
+    call dein#install()
+  endif
 endif
 
 " Plugins once used, delete after review 
@@ -46,24 +55,13 @@ endif
 " 'bkad/CamelCaseMotion'
 " 'easymotion/vim-easymotion'
 " 'ervandew/supertab'
-" 'joonty/vdebug'
 " 'junegunn/vim-easy-align'
 " 'kana/vim-textobj-entire'
 " 'kana/vim-textobj-user' 
 " 'marijnh/tern_for_vim'
+" \ 'SirVer/ultisnips', 
 " 'mhinz/vim-startify'
 " 'Shougo/vimshell.vim'
-" 'SirVer/ultisnips' 
 " 'tmhedberg/matchit'
 " 'vim-scripts/dbext.vim'
-" 'vim-scripts/dbext.vim'
 
-for plugin in plugList
-  call dein#add(plugin)
-endfor
-
-call dein#end()
-
-if dein#check_install()
- call dein#install()
-endif
