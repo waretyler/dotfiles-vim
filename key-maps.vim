@@ -39,8 +39,9 @@ cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 if (g:plugins == 1)
   noremap <leader>g :Gstat<CR>
 
-  noremap <leader>p :Denite file_rec<CR>
-  noremap <leader>b :Denite buffer<CR>
+  " Denite:
+  noremap <M-d>f :Denite file_rec<CR>
+  noremap <M-d>b :Denite buffer<CR>
 
   noremap <leader>t :TagbarOpen j<CR>
   " noremap <leader>e :Fixmyjs<CR>

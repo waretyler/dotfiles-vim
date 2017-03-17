@@ -65,8 +65,6 @@ if (g:plugins == 1)
 
   call fake#define('paragraph', 'join(map(range(fake#int(3,10)),"fake#gen(\"sentense\")"))')
 
-  let g:fixmyjs_rc_path = '$st/.eslintrc'
-
   " let g:neotags_enabled = 1
   let g:neotags_appendpath = 0
   let g:neotags_recursive = 0
@@ -97,5 +95,10 @@ if (g:plugins == 1)
   let GtagsCscope_Auto_Map = 1
   let GtagsCscope_Quiet = 1
   set cscopetag
+
+  " chromatica
+  " let g:chromatica#enable_at_startup=1
+  " let g:chromatica#libclang_path='/usr/local/opt/llvm/lib'
+
 
 endif
