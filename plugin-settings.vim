@@ -99,6 +99,14 @@ if (g:plugins == 1)
   " chromatica
   " let g:chromatica#enable_at_startup=1
   " let g:chromatica#libclang_path='/usr/local/opt/llvm/lib'
+  "
+
+  " Denite:
+	call denite#custom#option('default', 'prompt', '>>>')
+  call denite#custom#alias('source', 'file_rec/svn', 'file_rec')
+  call denite#custom#var('file_rec/svn', 'command', ['svn_list'])
+	call denite#custom#var('file_rec', 'command',
+	\ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 
 
 endif

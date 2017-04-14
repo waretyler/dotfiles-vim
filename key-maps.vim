@@ -40,8 +40,25 @@ if (g:plugins == 1)
   noremap <leader>g :Gstat<CR>
 
   " Denite:
-  noremap <M-d>f :Denite file_rec<CR>
-  noremap <M-d>b :Denite buffer<CR>
+  noremap <m-d>f :Denite file_rec<cr>
+  noremap <m-d>b :Denite buffer<cr>
+  noremap <m-d>h :Denite help<cr>
+  noremap <m-d>t :Denite tag<cr>
+  noremap <m-d>o :Denite outline<cr>
+  noremap <m-d>s :Denite file_rec/svn<cr>
+  call denite#custom#map(
+        \ 'insert',
+        \ '<C-j>',
+        \ '<denite:move_to_next_line>',
+        \ 'noremap'
+        \)
+  call denite#custom#map(
+        \ 'insert',
+        \ '<C-k>',
+        \ '<denite:move_to_previous_line>',
+        \ 'noremap'
+        \)
+
 
   noremap <leader>t :TagbarOpen j<CR>
   " noremap <leader>e :Fixmyjs<CR>
