@@ -1,51 +1,80 @@
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-inoremap <Left> <nop>
-inoremap <Right> <nop>
-nnoremap <Up> <nop>
-nnoremap <Down> <nop>
-nnoremap <Left> <nop>
-nnoremap <Right> <nop>
 
 noremap n nzz
 
-" editing
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+let mode_map_prefixes = {
+\  'normal': 'nnoremap',
+\  'visual': 'vnoremap',
+\  'insert': 'inoremap'
+\}
 
-" H -> 0
-" L -> $
-" nnoremap H 0
-" nnoremap L $
-" onoremap H 0
-" onoremap L $
-" vnoremap H 0
-" vnoremap L $
+" Mapping Tree
+function! EscapePipe(text)
+  " TODO: Change to be a generic exec escape I think this includes ' and "
+  " single quotes get doubled and double quotes get escaped once (unless
+  " nested) 
+  let text = a:text
 
-nnoremap g- YpVr-gqk
-nnoremap g= YpVr=gqk
+  let match_index = match(text, '|')
+  if match_index >= 0
+    let text = substitute(text, '|', '\\|', 'g')
+  endif
 
-noremap <leader>f za
+  return text
+endfunction
 
-" nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
-" nnoremap <silent> <leader>; :call <SID>AddSemiColon()<CR>
-" nnoremap <silent> <leader>, :call <SID>AddComma()<CR>
-nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
-map <C-g> :e %:h/<cfile><CR>
-map <C-*> :Ag <cword><CR>
+
+function! MapNode(mapping, prefix, modes)
+  let keys = a:prefix.a:mapping['key'] 
+  let modes = a:modes
+
+  if has_key(a:mapping, 'modes')  
+    for mode in a:mapping['modes']
+      let modes[mode] = 'true'
+    endfor
+  endif
+
+  if has_key(a:mapping, 'submap') 
+    for mapping in a:mapping['submap']
+      call MapNode(mapping, keys, modes) 
+    endfor
+  elseif has_key(a:mapping, 'map_to')
+    let map_params = EscapePipe(keys.' '.a:mapping['map_to'])
+    for mode in keys(modes)
+      if has_key(g:mode_map_prefixes, mode)
+        exec g:mode_map_prefixes[mode].' '.map_params
+      endif
+    endfor
+  endif
+endfunction 
+
+function! MapList(mappings) 
+  for mapping in a:mappings
+    call MapNode(mapping, '', {}) 
+  endfor
+endfunction
+
+
+
+function! LoadMapFile(path)
+  let vim_array = system('cat -v '.a:path.'| tr "\n" " " | sed ''s/[ ]\+/ /g'' | sed "s/''/\\\''/g" | sed "s/\([^\]\)\"/\1''/g" | sed "s/[\]\"/\"/g"') 
+  execute 'let mappings = '.vim_array
+  call MapList(mappings)
+endfunction
+
+call LoadMapFile('~/.mappings.json')
+
 
 cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-if (g:plugins == 1)
-  noremap <leader>g :Gstat<CR>
 
+if (g:plugins == 1)
   " Denite:
-  noremap <m-d>f :Denite file_rec<cr>
-  noremap <m-d>b :Denite buffer<cr>
-  noremap <m-d>h :Denite help<cr>
-  noremap <m-d>t :Denite tag<cr>
   noremap <m-d>o :Denite outline<cr>
   noremap <m-d>s :Denite file_rec/svn<cr>
+  noremap <m-d>t :Denite tag<cr>
+  noremap <m-d>l :Denite line<cr>
+  noremap <m-d>j :Denite jump<cr>
+
   call denite#custom#map(
         \ 'insert',
         \ '<C-j>',
@@ -58,10 +87,6 @@ if (g:plugins == 1)
         \ '<denite:move_to_previous_line>',
         \ 'noremap'
         \)
-
-
-  noremap <leader>t :TagbarOpen j<CR>
-  " noremap <leader>e :Fixmyjs<CR>
 
   let g:EasyMotion_do_mapping = 0 " Disable default mappings
 

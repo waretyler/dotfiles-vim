@@ -45,6 +45,8 @@ set smartcase
 set incsearch
 set hlsearch
 
+set inccommand=split
+
 set foldenable
 
 "" SLOW on large files
@@ -61,3 +63,10 @@ set foldenable
 " let xml_syntax_folding=1
 
 set listchars=tab:▸\ ,eol:¬
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+

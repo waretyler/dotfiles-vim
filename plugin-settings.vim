@@ -1,6 +1,6 @@
 if (g:plugins == 1)
 
-  colorscheme kalisi
+  colorscheme gruvbox
 
   let g:syntastic_html_tidy_ignore_errors=[
     \'<ir-',
@@ -58,6 +58,11 @@ if (g:plugins == 1)
   "     \ deoplete#mappings#manual_complete()
 
   "}}}
+  "
+
+  " let g:indent_guides_start_level = 2
+  " let g:indent_guides_guide_size = 1
+  " let g:indent_guides_color_change_percent = 0
 
   call fake#define('sentense', 'fake#capitalize('
                           \ . 'join(map(range(fake#int(3,15)),"fake#gen(\"nonsense\")"))'
@@ -79,18 +84,18 @@ if (g:plugins == 1)
               \ '--extra=+q'
               \ ]
 
-  " signify
+  " Signify:
   let g:signify_vcs_list = [ 'git', 'svn' ]
   omap ic <plug>(signify-motion-inner-pending)
   xmap ic <plug>(signify-motion-inner-visual)
   omap ac <plug>(signify-motion-outer-pending)
   xmap ac <plug>(signify-motion-outer-visual)
 
-  " vdebug
+  " VDebug:
   let g:vdebug_options = {}
   let g:vdebug_options['path_maps'] = {"/var/www/tware.tsheets-dev.com": "/Users/tware/Projects/tsheets/lntxweb1"}
 
-  " GNU Global
+  " GNU Global:
   let GtagsCscope_Auto_Load = 1
   let GtagsCscope_Auto_Map = 1
   let GtagsCscope_Quiet = 1
@@ -108,5 +113,20 @@ if (g:plugins == 1)
 	call denite#custom#var('file_rec', 'command',
 	\ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 
+  " CSV:
+  let b:csv_arrange_use_all_rows = 1
+
+  " PhpVim:
+  " function! PhpSyntaxOverride()
+  "   hi! def link phpDocTags  phpDefine
+  "   hi! def link phpDocParam phpType
+  " endfunction
+  "
+  " augroup phpSyntaxOverride
+  "   autocmd!
+  "   autocmd FileType php call PhpSyntaxOverride()
+  " augroup END
+  let g:nrrw_rgn_nomap_nr = 1
+  let g:nrrw_rgn_nomap_Nr = 1
 
 endif

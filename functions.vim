@@ -44,13 +44,29 @@ function! SourceFunction()
   exec 'Denite file_rec:'.value
 endfunction
 
-if (g:plugins == 1)
-	call denite#custom#option('default', 'prompt', '>>>')
-  
-  call denite#custom#alias('source', 'file_rec/svn', 'file_rec')
-  " call denite#custom#var('file_rec/svn', 'command', 'svn st | egrep "^(M|A|\?|D|R|C)" | sed "s/^[^ ][ ]*//"')
-  call denite#custom#var('file_rec/svn', 'command', ['svn_list'])
+function! OpenInPHPStorm()
+  let l = line(".")
+  let cmd='pstorm -l '.l.' '.expand('%')
 
-	call denite#custom#var('file_rec', 'command',
-	\ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-endif
+  silent exec '!'.cmd
+endfunction
+command! OpenInPHPStorm :call OpenInPHPStorm()
+
+  " redir => stdout
+  " silent exec 'r !'.cmd
+  " redir END
+  " put =stdout 
+
+nnoremap <leader>p :OpenInPHPStorm<CR>
+
+function! TSRunTest()
+  let l = line(".")
+  let cmd='ts.run_remote_test --remote tware.tsheets-dev.com --line '.l.' '.expand('%')
+
+  10new +normal\ J
+  silent exec 'r !'.cmd
+	normal GG
+endfunction
+command! TSRunTest :call TSRunTest()
+
+nnoremap <leader>rt :TSRunTest<CR>
