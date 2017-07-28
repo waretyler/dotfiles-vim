@@ -1,10 +1,15 @@
 
 noremap n nzz
 
-let mode_map_prefixes = {
-\  'normal': 'nnoremap',
-\  'visual': 'vnoremap',
-\  'insert': 'inoremap'
+let g:mode_map_prefixes = {
+\ 'command': 'cnoremap',
+\ 'insert': 'inoremap',
+\ 'langarg': 'lnoremap',
+\ 'normal': 'nnoremap',
+\ 'operator': 'onoremap',
+\ 'select': 'snoremap',
+\ 'terminal': 'tnoremap',
+\ 'visual': 'xnoremap'
 \}
 
 " Mapping Tree

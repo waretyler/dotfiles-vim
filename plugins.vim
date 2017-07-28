@@ -1,8 +1,12 @@
 if (g:plugins == 1)
   call dein#begin('~/.config/nvim')
   let plugList = [
+        \   '/usr/local/opt/fzf',
         \   'c0r73x/neotags.nvim',
+        \   'chemzqm/denite-git',
+        \   'chemzqm/vim-easygit',
         \   'chrisbra/csv.vim',
+        \   'chrisbra/NrrwRgn',
         \   'critiqjo/lldb.nvim',
         \   'easymotion/vim-easymotion',
         \   'freeo/vim-kalisi',
@@ -10,15 +14,17 @@ if (g:plugins == 1)
         \   'jez/vim-superman',
         \   'joonty/vdebug',
         \   'juneedahamed/svnj.vim',
+        \   'junegunn/fzf.vim',
+        \   'junegunn/goyo.vim',
+        \   'junegunn/limelight.vim',
         \   'lervag/vimtex',
-        \   'majutsushi/tagbar',
         \   'mhinz/vim-signify',
         \   'morhetz/gruvbox',
         \   'nathanaelkane/vim-indent-guides',
         \   'PeterRincker/vim-argumentative',
         \   'Raimondi/delimitMate',
-        \   'rking/ag.vim', 
         \   'scrooloose/nerdtree',
+        \   'shawncplus/phpcomplete.vim',
         \   'Shougo/dein.vim',
         \   'Shougo/denite.nvim',
         \   'Shougo/deoplete.nvim',
@@ -40,15 +46,15 @@ if (g:plugins == 1)
         \   'vim-scripts/taglist.vim',
         \   'whatot/gtags-cscope.vim',
         \   'zchee/deoplete-zsh',
-        \   'chrisbra/NrrwRgn',
-        \   'shawncplus/phpcomplete.vim',
         \ ]
 
         " \   'vim-scripts/jcommenter.vim',
         " \   'itchyny/lightline.vim',
         " \   'mxw/vim-jsx',
         " \   'pangloss/vim-javascript',
-        ""\   'arakashic/chromatica.nvim',
+        " \   'arakashic/chromatica.nvim',
+        " \   'majutsushi/tagbar',
+        " \   'rking/ag.vim', 
 
   for plugin in plugList
     call dein#add(plugin)

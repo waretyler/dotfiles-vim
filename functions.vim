@@ -57,7 +57,6 @@ command! OpenInPHPStorm :call OpenInPHPStorm()
   " redir END
   " put =stdout 
 
-nnoremap <leader>p :OpenInPHPStorm<CR>
 
 function! TSRunTest()
   let l = line(".")
@@ -69,4 +68,3 @@ function! TSRunTest()
 endfunction
 command! TSRunTest :call TSRunTest()
 
-nnoremap <leader>rt :TSRunTest<CR>

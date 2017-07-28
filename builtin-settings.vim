@@ -23,6 +23,10 @@ set wildmenu
 set wildmode=full
 set formatprg=par\ -er
 
+"would be great to be able to use shell functions & commands in here
+"set shellcmdflag=-i\ -c
+"set shell=zsh\ -i\ -c
+
 set expandtab
 set smarttab
 set tabstop=2
