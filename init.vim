@@ -1,7 +1,6 @@
 let g:plugins = 1
 
 let sourceFileList = [
-\   '$config/vim/local.vim',
 \   '$config/vim/plugins.vim',
 \   '$config/vim/builtin-settings.vim',
 \   '$config/vim/plugin-settings.vim',

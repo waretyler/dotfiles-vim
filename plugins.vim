@@ -1,7 +1,7 @@
 if (g:plugins == 1)
-  call dein#begin('~/.config/nvim')
+  call plug#begin('~/.local/share/nvim/plugged')
   let plugList = [
-        \   '/usr/local/opt/fzf',
+        \   '~/.fzf',
         \   'c0r73x/neotags.nvim',
         \   'chemzqm/denite-git',
         \   'chemzqm/vim-easygit',
@@ -57,13 +57,13 @@ if (g:plugins == 1)
         " \   'rking/ag.vim', 
 
   for plugin in plugList
-    call dein#add(plugin)
+    exec 'Plug '''.plugin.''''
   endfor
 
-  call dein#end()
+  call plug#end()
 
-  if dein#check_install()
-    call dein#install()
-  endif
+" if dein#check_install()
+"   call dein#install()
+" endif
 endif
 
