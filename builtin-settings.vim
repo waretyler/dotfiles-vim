@@ -74,3 +74,4 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
+autocmd filetype crontab setlocal nobackup nowritebackup

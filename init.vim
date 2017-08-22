@@ -5,6 +5,7 @@ let sourceFileList = [
 \   '$config/vim/builtin-settings.vim',
 \   '$config/vim/plugin-settings.vim',
 \   '$config/vim/abbreviations.vim',
+\   '$config/vim/statusline.vim',
 \   '$config/vim/functions.vim',
 \   '$config/vim/key-maps.vim',
 \   '$config/vim/autocmd.vim',

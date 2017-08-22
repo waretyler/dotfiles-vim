@@ -83,6 +83,10 @@ if (g:plugins == 1)
               \ '--sort=no',
               \ '--extra=+q'
               \ ]
+  " Lighline:
+  let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ }
 
   " Signify:
   let g:signify_vcs_list = [ 'git', 'svn' ]

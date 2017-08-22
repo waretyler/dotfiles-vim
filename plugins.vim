@@ -8,6 +8,7 @@ if (g:plugins == 1)
         \   'chrisbra/csv.vim',
         \   'chrisbra/NrrwRgn',
         \   'critiqjo/lldb.nvim',
+        \   'wincent/terminus',
         \   'easymotion/vim-easymotion',
         \   'freeo/vim-kalisi',
         \   'Houl/vim-repmo',
@@ -42,13 +43,14 @@ if (g:plugins == 1)
         \   'tpope/vim-speeddating',
         \   'tpope/vim-surround',
         \   'tpope/vim-unimpaired',
-        \   'vim-airline/vim-airline',
+        \   'itchyny/lightline.vim',
         \   'vim-scripts/taglist.vim',
         \   'whatot/gtags-cscope.vim',
         \   'zchee/deoplete-zsh',
         \ ]
 
         " \   'vim-scripts/jcommenter.vim',
+        " \   'vim-airline/vim-airline',
         " \   'itchyny/lightline.vim',
         " \   'mxw/vim-jsx',
         " \   'pangloss/vim-javascript',
