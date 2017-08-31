@@ -60,11 +60,14 @@ command! OpenInPHPStorm :call OpenInPHPStorm()
 
 function! TSRunTest()
   let l = line(".")
-  let cmd='ts.run_remote_test --remote tware.tsheets-dev.com --line '.l.' '.expand('%')
-
-  10new +normal\ J
-  silent exec 'r !'.cmd
-	normal GG
+  let cmd='ts test --remote tware.tsheets-dev.com --line '.l.' '.expand('%')
+  exec 'terminal '.cmd
 endfunction
 command! TSRunTest :call TSRunTest()
+
+function! TSRerunTest()
+  let cmd='ts test --rerun'
+  exec 'terminal '.cmd
+endfunction
+command! TSRerunTest :call TSRerunTest()
 

@@ -73,6 +73,7 @@ cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 
 if (g:plugins == 1)
+  if has('nvim')
   " Denite:
   noremap <m-d>o :Denite outline<cr>
   noremap <m-d>s :Denite file_rec/svn<cr>
@@ -92,6 +93,7 @@ if (g:plugins == 1)
         \ '<denite:move_to_previous_line>',
         \ 'noremap'
         \)
+  endif
 
   let g:EasyMotion_do_mapping = 0 " Disable default mappings
 

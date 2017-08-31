@@ -34,6 +34,8 @@ if (g:plugins == 1)
   """"""""""""""""""""""""""""""""""""""""""""""""""""""{{{
   let g:ag_prg="ag --vimgrep --smart-case -W 150"
   "}}}
+
+  if has("nvim")
   " deoplete
   """"""""""""""""""""""""""""""""""""""""""""""""""""""{{{
   let g:deoplete#enable_at_startup = 1
@@ -76,13 +78,27 @@ if (g:plugins == 1)
 
   let g:neotags_ctags_bin = 'ag -g "" '. getcwd() .' | ctags'
   let g:neotags_ctags_args = [
-              \ '-L -',
-              \ '--fields=+l',
-              \ '--c-kinds=+p',
-              \ '--c++-kinds=+p',
-              \ '--sort=no',
-              \ '--extra=+q'
-              \ ]
+        \ '-L -',
+        \ '--fields=+l',
+        \ '--c-kinds=+p',
+        \ '--c++-kinds=+p',
+        \ '--sort=no',
+        \ '--extra=+q'
+        \ ]
+  " Denite:
+  call denite#custom#option('default', 'prompt', '>>>')
+  call denite#custom#alias('source', 'file_rec/svn', 'file_rec')
+  call denite#custom#alias('source', 'file_rec/git-svn', 'file_rec')
+  call denite#custom#var('file_rec/svn', 'command', ['svn_list'])
+  call denite#custom#var('file_rec/git-svn', 'command', ['git_svn_diff_ls'])
+  call denite#custom#var('file_rec', 'command',
+        \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
+  call denite#custom#alias('source', 'file_rec/git', 'file_rec')
+  call denite#custom#var('file_rec/git', 'command',
+        \ ['git', 'ls-files', '-co', '--exclude-standard'])
+
+  endif
   " Lighline:
   let g:lightline = {
       \ 'colorscheme': 'jellybeans',
@@ -95,10 +111,10 @@ if (g:plugins == 1)
   omap ac <plug>(signify-motion-outer-pending)
   xmap ac <plug>(signify-motion-outer-visual)
 
-  " VDebug:
-  let g:vdebug_options = {}
-  let g:vdebug_options['path_maps'] = {"/var/www/tware.tsheets-dev.com": "/Users/tware/Projects/tsheets/lntxweb1"}
-
+  " " VDebug:
+  " let g:vdebug_options = {}
+  " let g:vdebug_options['path_maps'] = {"/var/www/tware.tsheets-dev.com": "/Users/tware/Projects/tsheets/lntxweb1"}
+  "
   " GNU Global:
   let GtagsCscope_Auto_Load = 1
   let GtagsCscope_Auto_Map = 1
@@ -110,18 +126,6 @@ if (g:plugins == 1)
   " let g:chromatica#libclang_path='/usr/local/opt/llvm/lib'
   "
 
-  " Denite:
-	call denite#custom#option('default', 'prompt', '>>>')
-  call denite#custom#alias('source', 'file_rec/svn', 'file_rec')
-  call denite#custom#alias('source', 'file_rec/git-svn', 'file_rec')
-  call denite#custom#var('file_rec/svn', 'command', ['svn_list'])
-  call denite#custom#var('file_rec/git-svn', 'command', ['git_svn_diff_ls'])
-	call denite#custom#var('file_rec', 'command',
-	\ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-
-	call denite#custom#alias('source', 'file_rec/git', 'file_rec')
-	call denite#custom#var('file_rec/git', 'command',
-	      \ ['git', 'ls-files', '-co', '--exclude-standard'])
 
   " CSV:
   let b:csv_arrange_use_all_rows = 1
@@ -142,4 +146,11 @@ if (g:plugins == 1)
   let g:limelight_conceal_ctermfg = 'gray'
   let g:limelight_conceal_ctermfg = 240
 
+
+  command! -bang -nargs=* Ag
+    \ call fzf#vim#ag(<q-args>, 
+    \                 '--hidden --ignore .git --ignore .idea',
+    \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+    \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+    \                 <bang>0)
 endif

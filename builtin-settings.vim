@@ -52,7 +52,9 @@ set smartcase
 set incsearch
 set hlsearch
 
-set inccommand=split
+if has('nvim')
+  set inccommand=split
+endif
 
 set foldenable
 

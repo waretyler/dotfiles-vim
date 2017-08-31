@@ -2,8 +2,6 @@ if (g:plugins == 1)
   call plug#begin('~/.local/share/nvim/plugged')
   let plugList = [
         \   '~/.fzf',
-        \   'c0r73x/neotags.nvim',
-        \   'chemzqm/denite-git',
         \   'chemzqm/vim-easygit',
         \   'chrisbra/csv.vim',
         \   'chrisbra/NrrwRgn',
@@ -13,8 +11,6 @@ if (g:plugins == 1)
         \   'freeo/vim-kalisi',
         \   'Houl/vim-repmo',
         \   'jez/vim-superman',
-        \   'joonty/vdebug',
-        \   'juneedahamed/svnj.vim',
         \   'junegunn/fzf.vim',
         \   'junegunn/goyo.vim',
         \   'junegunn/limelight.vim',
@@ -26,11 +22,7 @@ if (g:plugins == 1)
         \   'Raimondi/delimitMate',
         \   'scrooloose/nerdtree',
         \   'shawncplus/phpcomplete.vim',
-        \   'Shougo/dein.vim',
-        \   'Shougo/denite.nvim',
-        \   'Shougo/deoplete.nvim',
         \   'Shougo/neco-vim',
-        \   'Shougo/neoinclude.vim',
         \   'Shougo/vimshell.vim',
         \   'sjl/vitality.vim',
         \   'StanAngeloff/php.vim',
@@ -46,8 +38,19 @@ if (g:plugins == 1)
         \   'itchyny/lightline.vim',
         \   'vim-scripts/taglist.vim',
         \   'whatot/gtags-cscope.vim',
-        \   'zchee/deoplete-zsh',
         \ ]
+
+        if has('nvim')
+          let plugList = plugList + [
+          \   'Shougo/deoplete.nvim',
+          \   'zchee/deoplete-zsh',
+          \   'Shougo/neoinclude.vim',
+          \   'c0r73x/neotags.nvim',
+          \   'chemzqm/denite-git',
+          \   'Shougo/dein.vim',
+          \   'Shougo/denite.nvim',
+          \ ]
+        endif
 
         " \   'vim-scripts/jcommenter.vim',
         " \   'vim-airline/vim-airline',
