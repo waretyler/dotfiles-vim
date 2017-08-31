@@ -9,6 +9,9 @@ set shiftround
 set relativenumber
 set number
 
+" no extra new lines at the end of the file
+set noeol
+
 set background=dark
 
 " line numbers for :Explore
@@ -71,7 +74,7 @@ set listchars=tab:▸\ ,eol:¬
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ --hidden 
 endif
 
 autocmd filetype crontab setlocal nobackup nowritebackup
