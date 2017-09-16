@@ -52,23 +52,11 @@ if (g:plugins == 1)
           \ ]
         endif
 
-        " \   'vim-scripts/jcommenter.vim',
-        " \   'vim-airline/vim-airline',
-        " \   'itchyny/lightline.vim',
-        " \   'mxw/vim-jsx',
-        " \   'pangloss/vim-javascript',
-        " \   'arakashic/chromatica.nvim',
-        " \   'majutsushi/tagbar',
-        " \   'rking/ag.vim', 
-
   for plugin in plugList
     exec 'Plug '''.plugin.''''
   endfor
 
   call plug#end()
 
-" if dein#check_install()
-"   call dein#install()
-" endif
 endif
 
