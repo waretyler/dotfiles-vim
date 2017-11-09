@@ -1,14 +1,14 @@
 let g:plugins = 1
 
 let sourceFileList = [
-\   '$config/vim/plugins.vim',
-\   '$config/vim/builtin-settings.vim',
-\   '$config/vim/plugin-settings.vim',
-\   '$config/vim/abbreviations.vim',
-\   '$config/vim/statusline.vim',
-\   '$config/vim/functions.vim',
-\   '$config/vim/key-maps.vim',
-\   '$config/vim/autocmd.vim',
+\   '$cfg/vim/plugins.vim',
+\   '$cfg/vim/builtin-settings.vim',
+\   '$cfg/vim/plugin-settings.vim',
+\   '$cfg/vim/abbreviations.vim',
+\   '$cfg/vim/statusline.vim',
+\   '$cfg/vim/functions.vim',
+\   '$cfg/vim/key-maps.vim',
+\   '$cfg/vim/autocmd.vim',
 \ ]
 
 for sourceFile in sourceFileList
