@@ -46,7 +46,6 @@ if (g:plugins == 1)
           \   'Shougo/deoplete.nvim',
           \   'zchee/deoplete-zsh',
           \   'Shougo/neoinclude.vim',
-          \   'c0r73x/neotags.nvim',
           \   'mklabs/split-term.vim',
           \   'chemzqm/denite-git',
           \   'Shougo/dein.vim',
