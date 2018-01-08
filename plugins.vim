@@ -18,6 +18,7 @@ if (g:plugins == 1)
         \   'mhinz/vim-signify',
         \   'morhetz/gruvbox',
         \   'nathanaelkane/vim-indent-guides',
+        \   'jceb/vim-orgmode',
         \   'PeterRincker/vim-argumentative',
         \   'Raimondi/delimitMate',
         \   'scrooloose/nerdtree',
