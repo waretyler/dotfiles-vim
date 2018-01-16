@@ -1,15 +1,15 @@
 if (g:plugins == 1)
   call plug#begin('~/.local/share/nvim/plugged')
   let plugList = [
-        \   '~/.fzf',
         \   'chemzqm/vim-easygit',
         \   'chrisbra/csv.vim',
         \   'chrisbra/NrrwRgn',
         \   'critiqjo/lldb.nvim',
-        \   'wincent/terminus',
         \   'easymotion/vim-easymotion',
         \   'freeo/vim-kalisi',
         \   'Houl/vim-repmo',
+        \   'itchyny/lightline.vim',
+        \   'jceb/vim-orgmode',
         \   'jez/vim-superman',
         \   'junegunn/fzf.vim',
         \   'junegunn/goyo.vim',
@@ -18,13 +18,14 @@ if (g:plugins == 1)
         \   'mhinz/vim-signify',
         \   'morhetz/gruvbox',
         \   'nathanaelkane/vim-indent-guides',
-        \   'jceb/vim-orgmode',
         \   'PeterRincker/vim-argumentative',
         \   'Raimondi/delimitMate',
+        \   'rust-lang/rust.vim',
         \   'scrooloose/nerdtree',
         \   'shawncplus/phpcomplete.vim',
         \   'Shougo/neco-vim',
         \   'Shougo/vimshell.vim',
+        \   'SirVer/ultisnips',
         \   'sjl/vitality.vim',
         \   'StanAngeloff/php.vim',
         \   'tkhren/vim-fake',
@@ -35,11 +36,11 @@ if (g:plugins == 1)
         \   'tpope/vim-repeat',
         \   'tpope/vim-speeddating',
         \   'tpope/vim-surround',
-        \   'rust-lang/rust.vim',
         \   'tpope/vim-unimpaired',
-        \   'itchyny/lightline.vim',
         \   'vim-scripts/taglist.vim',
         \   'whatot/gtags-cscope.vim',
+        \   'wincent/terminus',
+        \   '~/.fzf',
         \ ]
 
         if has('nvim')
