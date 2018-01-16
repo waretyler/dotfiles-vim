@@ -71,3 +71,8 @@ function! TSRerunTest()
 endfunction
 command! TSRerunTest :call TSRerunTest()
 
+function! TSSyncDev()
+  let cmd='tsync -g -c -o dev-app'
+  exec 'Term '.cmd
+endfunction
+command! TSSyncDev :call TSSyncDev()
