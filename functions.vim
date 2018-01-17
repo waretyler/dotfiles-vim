@@ -76,3 +76,9 @@ function! TSSyncDev()
   exec 'Term '.cmd
 endfunction
 command! TSSyncDev :call TSSyncDev()
+
+function! TSBuild()
+  let cmd='(cd $ts_code/tsheets_app/trunk/.frontend && npm run build:all-for-distribution)'
+  exec 'Term '.cmd
+endfunction
+command! TSBuild :call TSBuild()
