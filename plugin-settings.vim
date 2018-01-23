@@ -42,7 +42,7 @@ if (g:plugins == 1)
   let g:deoplete#file#enable_buffer_path = 1
 
   let g:deoplete#sources = {}
-  let g:deoplete#sources._ = ['buffer', 'ultisnips']
+  let g:deoplete#sources._ = ['ultisnips', 'buffer']
   let g:deoplete#sources.php = ['buffer', 'tag']
   let g:deoplete#sources.js = ['buffer', 'tag']
 
@@ -154,6 +154,6 @@ if (g:plugins == 1)
     \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
     \                 <bang>0)
 
-  let g:UltiSnipsSnippetDirectories=["snips"]
+  let g:UltiSnipsSnippetDirectories=["snips", "docs"]
 
 endif

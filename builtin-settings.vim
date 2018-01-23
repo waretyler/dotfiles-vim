@@ -80,3 +80,5 @@ if executable('ag')
 endif
 
 autocmd filetype crontab setlocal nobackup nowritebackup
+
+let g:tex_flavor = "latex"
