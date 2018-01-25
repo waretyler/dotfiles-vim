@@ -1,17 +1,25 @@
 let g:plugins = 1
 
+let vimRoot = $cfg.'/vim'
+
 let sourceFileList = [
-\   '$cfg/vim/plugins.vim',
-\   '$cfg/vim/builtin-settings.vim',
-\   '$cfg/vim/plugin-settings.vim',
-\   '$cfg/vim/functions.vim',
-\   '$cfg/vim/key-maps.vim',
-\   '$cfg/vim/abbreviations.vim',
-\   '$cfg/vim/statusline.vim',
-\   '$cfg/vim/autocmd.vim',
+\   '/plugins.vim',
+\   '/builtin-settings.vim',
+\   '/plugin-settings.vim',
+\   '/functions.vim',
+\   '/key-maps.vim',
+\   '/abbreviations.vim',
+\   '/statusline.vim',
+\   '/autocmd.vim',
 \ ]
+
 for sourceFile in sourceFileList
-  execute 'source '.sourceFile
+  execute 'source '.vimRoot.sourceFile
 endfor
+
+let localVimRoot = vimRoot.'/local'
+if isdirectory(localVimRoot) && filereadable(localVimRoot.'/init.vim')
+  execute 'source '.localVimRoot.'/init.vim' 
+endif
 
 highlight Comment cterm=italic
