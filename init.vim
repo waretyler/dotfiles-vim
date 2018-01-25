@@ -1,5 +1,4 @@
 let g:plugins = 1
-
 let vimRoot = $cfg.'/vim'
 
 let sourceFileList = [
