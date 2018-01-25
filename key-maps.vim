@@ -60,14 +60,29 @@ endfunction
 
 
 
+function! JsonDecodeFile(path)
+  let path = expand(a:path)
+
+  " TODO: figure out the \w escaped character issue using json_decode()
+  " if exists("*json_decode") 
+  "   " let decode = json_decode(readfile(path))
+  " else
+  "   let decodeStr = system('cat -v '.path.'| tr "\n" " " | sed ''s/[ ]\+/ /g'' | sed "s/''/\\\''/g" | sed "s/\([^\]\)\"/\1''/g" | sed "s/[\]\"/\"/g"') 
+  "   execute 'let decode = '.decodeStr
+  " endif
+  
+  let decodeStr = system('cat -v '.path.'| tr "\n" " " | sed ''s/[ ]\+/ /g'' | sed "s/''/\\\''/g" | sed "s/\([^\]\)\"/\1''/g" | sed "s/[\]\"/\"/g"') 
+  execute 'let decode = '.decodeStr
+  
+  return decode
+endfunction
+
 function! LoadMapFile(path)
-  let vim_array = system('cat -v '.a:path.'| tr "\n" " " | sed ''s/[ ]\+/ /g'' | sed "s/''/\\\''/g" | sed "s/\([^\]\)\"/\1''/g" | sed "s/[\]\"/\"/g"') 
-  execute 'let mappings = '.vim_array
+  let mappings = JsonDecodeFile(a:path)
   call MapList(mappings)
 endfunction
 
-call LoadMapFile('~/.mappings.json')
-
+call LoadMapFile(vimRoot.'/key-map.json')
 
 cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
