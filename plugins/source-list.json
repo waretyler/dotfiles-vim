@@ -1,0 +1,16 @@
+{
+  "vim": [
+    "fzf.vim",
+    "gtags.vim",
+    "lightline.vim",
+    "limelight.vim",
+    "nrrw.vim",
+    "signify.vim",
+    "ultisnips.vim"
+  ],
+  "nvim": [
+    "denite.vim",
+    "deoplete.vim"
+  ]
+}
+

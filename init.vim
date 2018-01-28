@@ -1,24 +1,12 @@
 let g:plugins = 1
-let vimRoot = $cfg.'/vim'
+let g:rootConfigPath = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
-let sourceFileList = [
-\   '/plugins.vim',
-\   '/builtin-settings.vim',
-\   '/plugin-settings.vim',
-\   '/functions.vim',
-\   '/key-maps.vim',
-\   '/abbreviations.vim',
-\   '/statusline.vim',
-\   '/autocmd.vim',
-\ ]
+let utilityFile = g:rootConfigPath.'/utility.vim'
 
-for sourceFile in sourceFileList
-  execute 'source '.vimRoot.sourceFile
-endfor
-
-let localVimRoot = vimRoot.'/local'
-if isdirectory(localVimRoot) && filereadable(localVimRoot.'/init.vim')
-  execute 'source '.localVimRoot.'/init.vim' 
+if !filereadable(expand(utilityFile))
+  throw 'Dotfiles are''t set up on this machine.'
 endif
 
-highlight Comment cterm=italic
+execute 'source '.utilityFile
+call SourceListFromFile(g:rootConfigPath.'/source-list.json')
+call SourceListFromFile(g:rootConfigPath.'/local/source-list.json')

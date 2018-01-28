@@ -1,5 +1,5 @@
-
-noremap n nzz
+" Split this into a plugin?
+" mapr.vim?
 
 let g:mode_map_prefixes = {
 \ 'command': 'cnoremap',
@@ -58,34 +58,16 @@ function! MapList(mappings)
   endfor
 endfunction
 
-
-
-function! JsonDecodeFile(path)
-  let path = expand(a:path)
-
-  " TODO: figure out the \w escaped character issue using json_decode()
-  " if exists("*json_decode") 
-  "   " let decode = json_decode(readfile(path))
-  " else
-  "   let decodeStr = system('cat -v '.path.'| tr "\n" " " | sed ''s/[ ]\+/ /g'' | sed "s/''/\\\''/g" | sed "s/\([^\]\)\"/\1''/g" | sed "s/[\]\"/\"/g"') 
-  "   execute 'let decode = '.decodeStr
-  " endif
-  
-  let decodeStr = system('cat -v '.path.'| tr "\n" " " | sed ''s/[ ]\+/ /g'' | sed "s/''/\\\''/g" | sed "s/\([^\]\)\"/\1''/g" | sed "s/[\]\"/\"/g"') 
-  execute 'let decode = '.decodeStr
-  
-  return decode
-endfunction
-
 function! LoadMapFile(path)
-  let mappings = JsonDecodeFile(a:path)
+  let mappings = JsonDecodeFile(a:path, 'extra')
   call MapList(mappings)
 endfunction
 
-call LoadMapFile(vimRoot.'/key-map.json')
+" Get down to business
+call LoadMapFile(g:rootConfigPath.'/key-map.json')
 
+noremap n nzz
 cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
 
 if (g:plugins == 1)
   if has('nvim')

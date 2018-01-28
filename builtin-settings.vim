@@ -1,9 +1,35 @@
+" TODO split up like plugins?
+
 let mapleader=" "
 
 filetype plugin on
 
 " SUPER SLOW on big files :(
 " filetype indent on
+
+" TODO: Backup could use some love.. vim just saves the file with the same name
+" (no path info)
+"
+" It would be nice to store some more info like filepath
+" and /or date
+"
+" Reference Post:
+" https://stackoverflow.com/questions/6698316/restore-vim-backups#9528517 
+" Also might look into a git based solution / alternative for backing up files
+" on save
+"
+" Other Posts:
+" http://vim.wikia.com/wiki/Keep_incremental_backups_of_edited_files
+  " https://www.gmarks.org/vi_backups.html
+"
+" Set the backup directory, so my filesystem doesn't get littered with backups
+" !mkdir -p ~/.local/share/nvim/backup 
+set backupdir=~/.local/share/nvim/backup//
+set backup 
+
+" Saves  
+set undofile
+set ruler
 
 set shiftround
 set relativenumber
@@ -36,9 +62,10 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
+" TODO: Move this to tsheets repo
 function! SetupEnvironment()
   let l:path = expand('%:p')
-  if l:path =~ '/Users/tware/Projects/tsheets'
+  if l:path =~ expand('$ts')
     setlocal tabstop=4 shiftwidth=4 softtabstop=4
   endif
 endfunction
@@ -73,10 +100,23 @@ set foldenable
 
 set listchars=tab:▸\ ,eol:¬
 
+if g:plugins == 1
+  colorscheme gruvbox
+endif
+
+set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+set laststatus=2 " always show status line
+set guifont=Hack:s12
+set guitablabel=%t
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor\ --hidden 
+  let g:ag_prg="ag --vimgrep --smart-case -W 150"
 endif
 
 autocmd filetype crontab setlocal nobackup nowritebackup
