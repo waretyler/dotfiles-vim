@@ -62,15 +62,6 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
-" TODO: Move this to tsheets repo
-function! SetupEnvironment()
-  let l:path = expand('%:p')
-  if l:path =~ expand('$ts')
-    setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  endif
-endfunction
-autocmd! BufReadPost,BufNewFile * call SetupEnvironment()
-
 syntax enable
 
 set gdefault " set global as default
