@@ -2,7 +2,9 @@
   "root[<leader>]": [
     ["normal"],
     {
-      "export": { "pdf": ":silent !pdflatex % > /dev/null<CR>" },
+      "export": { 
+        "pdf": ":silent !pdflatex % > /dev/null<CR>" 
+      },
       "comand list[<leader>]": [":Commands<CR>", ["visual", "select"]],
       "narrow": {
         "region": [":NR!<CR>", ["visual", "select"]] ,
@@ -77,5 +79,6 @@
       "word wrapper[,]": "\<\><Left><Left>",
       "capture [g]roup": "\(\)<Left><Left>"
     }
-  ]
+  ],
+  "quick escape[jk]": ["<ESC>", ["insert"]]
 }

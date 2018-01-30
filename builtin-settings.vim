@@ -23,7 +23,7 @@ filetype plugin on
   " https://www.gmarks.org/vi_backups.html
 "
 " Set the backup directory, so my filesystem doesn't get littered with backups
-" !mkdir -p ~/.local/share/nvim/backup 
+silent !mkdir -p ~/.local/share/nvim/backup 
 set backupdir=~/.local/share/nvim/backup//
 set backup 
 

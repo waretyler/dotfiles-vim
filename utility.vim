@@ -19,7 +19,16 @@ function! JsonDecodeFile(fileName, flag)
 
     let decode = json_decode(file)
   else
-    let decodeStr = system('cat -v '.fileName.'| tr "\n" " " | sed ''s/[ ]\+/ /g'' | sed "s/''/\\\''/g" | sed "s/\([^\]\)\"/\1''/g" | sed "s/[\]\"/\"/g"') 
+  " convert json file to vimscript
+  " 1. cut out new lines
+  " 2. slim whitespace down
+  " 3. escape existing ' (map ' -> '') 
+  " 4. replace json string delimter (") with vim's string delimter ('), not including json escaped " (\") (map " -> ')
+  " 5. remove escaping from remaining " (map \" -> ")
+  "
+  " escaped: 
+  " cat -v <file> | tr "\n" " "| sed -e "s/[ ]\+/ /g" -e "s/'/''/g" -e "s/\([^\]\)\"/\1'/g" -e 's/[\]"/"/g'
+  let decodestr = system('cat -v '.path.' | tr "\n" " "| sed -e "s/[ ]\+/ /g" -e "s/''/''''/g" -e "s/\([^\]\)\"/\1''/g" -e ''s/[\]"/"/g''')
     execute 'let decode = '.decodeStr
   endif
   
