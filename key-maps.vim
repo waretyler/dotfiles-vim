@@ -28,6 +28,18 @@ function! EscapePipe(text)
 endfunction
 
 
+""""
+" Takes a name and mapping, it recursively maps 
+"   name (string)            hopefully a meaningful name, from which the actual
+"                            keybinding is derived
+"
+"   mapping (dict|str)       if it's a a dictionary, it's a parent only
+"                            A string indicates a final mapping
+""""
+function! CreateMap(name, mapping) 
+
+endfunction 
+
 function! MapNode(mapping, prefix, modes)
   let keys = a:prefix.a:mapping['key'] 
   let modes = a:modes
