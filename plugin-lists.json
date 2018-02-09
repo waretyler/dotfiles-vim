@@ -38,6 +38,7 @@
     "vim-scripts/taglist.vim",
     "whatot/gtags-cscope.vim",
     "wincent/terminus",
+    "w0rp/ale",
     "~/.fzf"
   ],
   "nvim": [

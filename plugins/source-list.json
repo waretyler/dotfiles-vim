@@ -6,7 +6,8 @@
     "limelight.vim",
     "nrrw.vim",
     "signify.vim",
-    "ultisnips.vim"
+    "ultisnips.vim",
+    "ale.vim"
   ],
   "nvim": [
     "denite.vim",
