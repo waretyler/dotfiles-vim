@@ -39,6 +39,7 @@ set number
 set noeol
 
 set background=dark
+set signcolumn=yes
 
 " line numbers for :Explore
 let g:netrw_bufsettings = 'noma nomod rnu nobl nowrap ro'

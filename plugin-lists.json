@@ -13,7 +13,6 @@
     "junegunn/goyo.vim",
     "junegunn/limelight.vim",
     "lervag/vimtex",
-    "mhinz/vim-signify",
     "morhetz/gruvbox",
     "nathanaelkane/vim-indent-guides",
     "PeterRincker/vim-argumentative",
@@ -39,6 +38,7 @@
     "whatot/gtags-cscope.vim",
     "wincent/terminus",
     "w0rp/ale",
+    "airblade/vim-gitgutter",
     "~/.fzf"
   ],
   "nvim": [

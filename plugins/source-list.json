@@ -5,7 +5,7 @@
     "lightline.vim",
     "limelight.vim",
     "nrrw.vim",
-    "signify.vim",
+    "gitgutter.vim",
     "ultisnips.vim",
     "ale.vim"
   ],

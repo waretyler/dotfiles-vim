@@ -85,7 +85,13 @@
         ]
       },
       {"key": "h", "map_to": ":Helptags<CR>", "map_to_denite": ":Denite help<CR>"},
-      {"key": "q", "map_to": ":q<CR>"},
+      {"key": "q", "submap": [        
+        {"key": "q", "map_to": ":q<CR>"},
+        {"key": "Q", "map_to": ":q!<CR>"},
+        {"key": "a", "map_to": ":qa<CR>"},
+        {"key": "A", "map_to": ":qa!<CR>"}
+      ]
+      },
       {
         "key": "t", 
         "submap": [          
