@@ -37,6 +37,7 @@
     "wincent/terminus",
     "w0rp/ale",
     "mhinz/vim-signify",
+    "metakirby5/codi.vim",
     "~/.fzf"
   ],
   "nvim": [
