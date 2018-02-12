@@ -5,9 +5,10 @@
     "lightline.vim",
     "limelight.vim",
     "nrrw.vim",
-    "gitgutter.vim",
+    "signify.vim",
     "ultisnips.vim",
-    "ale.vim"
+    "ale.vim",
+    "phpcd.vim"
   ],
   "nvim": [
     "denite.vim",

@@ -19,13 +19,11 @@
     "Raimondi/delimitMate",
     "rust-lang/rust.vim",
     "scrooloose/nerdtree",
-    "shawncplus/phpcomplete.vim",
     "Shougo/neco-vim",
-    "Shougo/vimshell.vim",
     "SirVer/ultisnips",
     "sjl/vitality.vim",
-    "StanAngeloff/php.vim",
     "tkhren/vim-fake",
+    "lvht/phpcd.vim",
     "tomtom/tcomment_vim",
     "tpope/vim-eunuch",
     "tpope/vim-fugitive",
@@ -38,7 +36,7 @@
     "whatot/gtags-cscope.vim",
     "wincent/terminus",
     "w0rp/ale",
-    "airblade/vim-gitgutter",
+    "mhinz/vim-signify",
     "~/.fzf"
   ],
   "nvim": [
