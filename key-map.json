@@ -93,6 +93,9 @@
       ]
       },
       {
+        "key": "<C-t>", "map_to": ":terminal<CR>"
+      },
+      {
         "key": "t", 
         "submap": [          
           {"key": "t", "map_to": ":tabnew<CR>"},
