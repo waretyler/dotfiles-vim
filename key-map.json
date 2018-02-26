@@ -106,7 +106,6 @@
       }
     ]
   },
-  { "key": "jk", "modes": ["insert"], "map_to": "<ESC>" },
   {
     "key": "<c-space>",
     "modes": ["command"],
