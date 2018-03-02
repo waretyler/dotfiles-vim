@@ -110,3 +110,12 @@ if (g:plugins == 1)
   map <Leader>j <Plug>(easymotion-j)
   map <Leader>k <Plug>(easymotion-k)
 endif
+
+
+
+augroup filetype_js
+    autocmd!
+    autocmd FileType javascript nnoremap <buffer> <leader>lv "gyiwoconsole.log('',);<ESC>F'"gPf,"gp
+    autocmd FileType javascript nnoremap <buffer> <leader>li oconsole.log();<ESC>T(
+    autocmd FileType javascript nnoremap <buffer> <leader>id odebugger;<ESC>
+augroup END

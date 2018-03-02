@@ -9,7 +9,7 @@
             {"key": "p", "map_to": ":silent !pdflatex % > /dev/null<CR>"}
         ]
       },
-      {"key": "<leader>", "modes": ["visual", "select"], "map_to": ":Commands<CR>", "map_to_denite": ":Denite command<CR>"},
+      {"key": "<leader>", "modes": ["visual", "select"], "map_to": ":Commands<CR>"},
       {
         "name": "narrow",
         "key": "n", 
@@ -24,10 +24,10 @@
         "key": "f", 
         "modes": ["visual", "select"],
         "submap": [
-          {"key": "f", "map_to": ":Files<CR>", "map_to_denite": ":Denite file_rec<CR>"},
+          {"key": "f", "map_to": ":Files<CR>"},
           {"key": "r", "map_to": ":History<CR>"},
-          {"key": "t", "map_to": ":Filetypes<CR>", "map_to_denite": ":Denite filetype<CR>"},
-          {"key": "d", "map_to": ":GFiles?<CR>", "map_to_denite": ":Denite file_rec/git-svn<CR>"},
+          {"key": "t", "map_to": ":Filetypes<CR>"},
+          {"key": "d", "map_to": ":GFiles?<CR>"},
           {"key": "s", "map_to": ":write<CR>"},
           {
             "key": "e", 
@@ -57,7 +57,7 @@
           {"key": "c", "map_to": ":noh <CR>"},
           {"key": "p", "map_to": ":Ag "},
           {"key": "d", "map_to": ":execute 'silent ! xdg-open \"devdocs://search/' . &ft . ' <cword>'\"<CR>"},
-          {"key": "l", "map_to": ":BLines<CR>", "map_to_denite": ":Denite line<CR>"},
+          {"key": "l", "map_to": ":BLines<CR>"},
           {"key": "L", "map_to": ":Lines<CR>"}
         ]
       },
@@ -75,6 +75,10 @@
       {
         "key": "w", 
         "submap": [
+          {"key": "h", "map_to": "<c-w>h"}, 
+          {"key": "j", "map_to": "<c-w>j"}, 
+          {"key": "k", "map_to": "<c-w>k"}, 
+          {"key": "l", "map_to": "<c-w>l"}, 
           {"key": "d", "map_to": ":close<CR>"}, 
           {"key": "o", "map_to": ":only<CR>"},
           {"key": "s", "map_to": ":split<CR>"},
@@ -84,7 +88,7 @@
           {"key": "=", "map_to": "<c-w>="}
         ]
       },
-      {"key": "h", "map_to": ":Helptags<CR>", "map_to_denite": ":Denite help<CR>"},
+      {"key": "h", "map_to": ":Helptags<CR>"},
       {"key": "q", "submap": [        
         {"key": "q", "map_to": ":q<CR>"},
         {"key": "Q", "map_to": ":q!<CR>"},

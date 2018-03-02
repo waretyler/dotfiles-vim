@@ -38,6 +38,7 @@
     "w0rp/ale",
     "mhinz/vim-signify",
     "metakirby5/codi.vim",
+    "wellle/targets.vim",
     "~/.fzf"
   ],
   "nvim": [
