@@ -8,7 +8,8 @@
     "signify.vim",
     "ultisnips.vim",
     "ale.vim",
-    "phpcd.vim"
+    "phpcd.vim",
+    "editorconfig.vim"
   ],
   "nvim": [
     "denite.vim",

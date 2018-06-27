@@ -39,7 +39,8 @@
     "mhinz/vim-signify",
     "metakirby5/codi.vim",
     "wellle/targets.vim",
-    "~/.fzf"
+    "~/.fzf",
+    "editorconfig/editorconfig-vim"
   ],
   "nvim": [
     "Shougo/deoplete.nvim",
