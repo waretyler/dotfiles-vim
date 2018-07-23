@@ -9,7 +9,8 @@
     "ultisnips.vim",
     "ale.vim",
     "phpcd.vim",
-    "editorconfig.vim"
+    "editorconfig.vim",
+    "lsp.vim"
   ],
   "nvim": [
     "denite.vim",

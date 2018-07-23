@@ -40,7 +40,8 @@
     "metakirby5/codi.vim",
     "wellle/targets.vim",
     "~/.fzf",
-    "editorconfig/editorconfig-vim"
+    "editorconfig/editorconfig-vim",
+    ["autozimu/LanguageClient-neovim", {"branch": "next", "do": "bash install.sh"}]
   ],
   "nvim": [
     "Shougo/deoplete.nvim",

@@ -1,5 +1,9 @@
 function! LoadPlugin(plugin)
-  execute 'Plug '''.a:plugin.''''
+  if (type(a:plugin) == v:t_list)
+    Plug a:plugin[0], a:plugin[1]
+  else
+    Plug a:plugin
+  endif
 endfunction
 
 if (g:plugins == 1)
